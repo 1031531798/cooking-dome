@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#centent {
+  display: flex;
+  width: 70% ;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 10%;
+}
