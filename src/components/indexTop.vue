@@ -4,7 +4,7 @@
     <div id="input">
         <i-input size="large" :placeholder="msg" style="width:200%;">
         <i-select slot="prepend" style="width: 5rem" :model.sync="model1" placeholder="全部菜系">
-          <i-option v-for="item in cityList" :value="item.value">{{ item.label }}</i-option>
+          <i-option v-for="(item,key) in cityList" :value="item.value" :key='key'>{{ item.label }}</i-option>
         </i-select>
         <i-button slot="append" icon="ios-search"></i-button>
       </i-input>
@@ -14,46 +14,50 @@
 
 <script>
 export default {
-  name: "indexTop",
-  data() {
+  name: 'indexTop',
+  data () {
     return {
-      msg: "开始搜索各式各样的菜肴吧！",
+      msg: '开始搜索各式各样的菜肴吧！',
       cityList: [
         {
-          value: "chuancai",
-          label: "川菜"
+          value: 'quanbucaixi',
+          label: '全部菜系'
         },
         {
-          value: "lucai",
-          label: "鲁菜"
+          value: 'chuancai',
+          label: '川菜'
         },
         {
-          value: "yuecai",
-          label: "粤菜"
+          value: 'lucai',
+          label: '鲁菜'
         },
         {
-          value: "sucai",
-          label: "苏菜"
+          value: 'yuecai',
+          label: '粤菜'
         },
         {
-          value: "zhecai",
-          label: "浙菜"
+          value: 'sucai',
+          label: '苏菜'
         },
         {
-          value: "mincai",
-          label: "闽菜"
+          value: 'zhecai',
+          label: '浙菜'
         },
         {
-          value: "xiangcai",
-          label: "湘菜"
+          value: 'mincai',
+          label: '闽菜'
         },
         {
-          value: "huicai",
-          label: "徽菜"
+          value: 'xiangcai',
+          label: '湘菜'
+        },
+        {
+          value: 'huicai',
+          label: '徽菜'
         }
       ],
-      model1: ""
-    };
+      model1: ''
+    }
   }
 }
 </script>

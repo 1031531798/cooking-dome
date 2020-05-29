@@ -1,20 +1,25 @@
 <template>
   <div class="header">
     <top></top>
+    <userIcon/>
   </div>
 </template>
 
 <script>
-import top from "./components/indexTop";
+import top from './components/indexTop'
+import userIcon from './components/userIcon'
 export default {
-  name: "Header",
-  data() {
+  name: 'Header',
+  data () {
     return {
       value: [0, 50]
-    };
+    }
   },
-  components: { top }
-};
+  components: {
+    'top': top,
+    'userIcon': userIcon
+  }
+}
 </script>
 
 <style>
