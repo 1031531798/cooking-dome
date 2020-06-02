@@ -26,7 +26,7 @@
     <div class="userImger userGroup">
       <Dropdown trigger="click">
         <div class="userName">
-          <img src="../assets/cat3.jpg" />
+          <img :src="userImgerSrc" />
           <a href="javascript:void(0)" class="flexRow">
             {{userName}}
             <span class="icon iconfont icon-icon-test25"></span>
@@ -49,12 +49,12 @@ export default {
   data () {
     return {
       model1: '',
-      userImgerSrc: '../assets/cat3.jpg',
+      userImgerSrc: '../../static/cat3.jpg',
       userName: 'linzijian',
       messageNumber: 1
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -64,9 +64,9 @@ export default {
   flex-direction: row;
   align-items: center;
   font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
-  border: 1px solid white;
+  border: 1px solid #8ed6b2;
   border-radius: 10px;
-  background: #d7dde4;
+  background: #8ed6b2;
   margin: 3px;
 }
 #userIcon img {

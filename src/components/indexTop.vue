@@ -1,6 +1,10 @@
 <template>
   <div id="indexTop">
-    <img src="../assets/mark.jpg" alt="舌尖上的中国" title="舌尖上的中国" />
+    <!-- 网站图标 -->
+    <div class="headerImg">
+      <img :src="markSrc" alt="舌尖上的中国" title="舌尖上的中国" />
+    </div>
+    <!-- 搜索框 -->
     <div id="input">
         <i-input size="large" :placeholder="msg" style="width:200%;">
         <i-select slot="prepend" style="width: 5rem" :model.sync="model1" placeholder="全部菜系">
@@ -17,7 +21,9 @@ export default {
   name: 'indexTop',
   data () {
     return {
+      // 搜索框的数据
       msg: '开始搜索各式各样的菜肴吧！',
+      markSrc: '../../static/mark.jpg',
       cityList: [
         {
           value: 'quanbucaixi',
@@ -68,16 +74,26 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
   height: 10%;
 }
 #input {
   display: flex;
   width: 60%;
 }
-img {
+.headerImg{
+  display: flex;
+  align-items: center;
+  position: relative;
   width: 10rem;
-  height: 5rem;
-  margin-right: 2rem;
+  height: 100%;
+  margin-right: 1rem;
+}
+.headerImg img {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 #user_love {
   font-size: 2rem;

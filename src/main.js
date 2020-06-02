@@ -1,9 +1,10 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import Header from './Header.vue'
+import appView from './appView.vue'
 import router from './router'
 import iView from 'iview'
+import jquery from 'jquery'
 import 'iview/dist/styles/iview.css'
 import './assets/iconfont/iconfont.js'
 import './assets/iconfont/iconfont.css'
@@ -13,6 +14,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  components: { Header },
-  template: '<Header/>'
+  components: { appView },
+  template: '<appView/>'
 })
