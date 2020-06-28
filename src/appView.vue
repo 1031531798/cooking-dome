@@ -9,6 +9,7 @@
     </div>
     <Tabs active-key="key1" id="tabs" v-model="page">
         <Tab-pane :label="tab" :key="key" v-for="(tab,key) of tabArr" :name='tab'>
+          <menuList :itemArrey="itemData"></menuList>
         </Tab-pane>
     </Tabs>
   </div>
@@ -25,7 +26,11 @@ export default {
     return {
       value: [0, 50],
       tabArr: ['Home'],
-      page: 'Home'
+      page: 'Home',
+      itemData: [
+        {img: '../static/hp1.jpg', text: '这是一个美丽的food', userImg: '../static/cat3.jpg', userName: 'linzijian'},
+        {img: '../static/hp1.jpg', text: '这是一个美丽的food', userImg: '../sdsdsd', userName: 'linzijian'}
+      ]
     }
   },
   components: {
@@ -55,7 +60,10 @@ export default {
     display: flex;
     width: 100%;
     margin-bottom: 2rem;
-    background: #8ed6b2;
+    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    border: 0px solid;
+    transition: all 0.3s;
+    font-family:Arial, Helvetica, sans-serif;
   }
   .userIcon{
     position: relative;

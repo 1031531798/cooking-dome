@@ -1,17 +1,12 @@
 <template>
   <div id="indexTop">
     <!-- 网站图标 -->
-    <div class="headerImg">
+    <!-- <div class="headerImg">
       <img :src="markSrc" alt="舌尖上的中国" title="舌尖上的中国" />
-    </div>
+    </div> -->
     <!-- 搜索框 -->
-    <div id="input">
-        <i-input size="large" :placeholder="msg" style="width:200%;">
-        <i-select slot="prepend" style="width: 5rem" :model.sync="model1" placeholder="全部菜系">
-          <i-option v-for="(item,key) in cityList" :value="item.value" :key='key'>{{ item.label }}</i-option>
-        </i-select>
-        <i-button slot="append" icon="ios-search"></i-button>
-      </i-input>
+    <div class="input-div">
+      <input type="text" class="input" placeholder="在此输入你像搜索的内容" @focus="focusInput" @blur="blurInput">
     </div>
   </div>
 </template>
@@ -22,47 +17,56 @@ export default {
   data () {
     return {
       // 搜索框的数据
-      msg: '开始搜索各式各样的菜肴吧！',
       markSrc: '../../static/mark.jpg',
-      cityList: [
-        {
-          value: 'quanbucaixi',
-          label: '全部菜系'
-        },
-        {
-          value: 'chuancai',
-          label: '川菜'
-        },
-        {
-          value: 'lucai',
-          label: '鲁菜'
-        },
-        {
-          value: 'yuecai',
-          label: '粤菜'
-        },
-        {
-          value: 'sucai',
-          label: '苏菜'
-        },
-        {
-          value: 'zhecai',
-          label: '浙菜'
-        },
-        {
-          value: 'mincai',
-          label: '闽菜'
-        },
-        {
-          value: 'xiangcai',
-          label: '湘菜'
-        },
-        {
-          value: 'huicai',
-          label: '徽菜'
-        }
-      ],
+      // cityList: [
+      //   {
+      //     value: 'quanbucaixi',
+      //     label: '全部菜系'
+      //   },
+      //   {
+      //     value: 'chuancai',
+      //     label: '川菜'
+      //   },
+      //   {
+      //     value: 'lucai',
+      //     label: '鲁菜'
+      //   },
+      //   {
+      //     value: 'yuecai',
+      //     label: '粤菜'
+      //   },
+      //   {
+      //     value: 'sucai',
+      //     label: '苏菜'
+      //   },
+      //   {
+      //     value: 'zhecai',
+      //     label: '浙菜'
+      //   },
+      //   {
+      //     value: 'mincai',
+      //     label: '闽菜'
+      //   },
+      //   {
+      //     value: 'xiangcai',
+      //     label: '湘菜'
+      //   },
+      //   {
+      //     value: 'huicai',
+      //     label: '徽菜'
+      //   }
+      // ],
       model1: ''
+    }
+  },
+  methods:{
+    focusInput: function () {
+      $('#input').attr('placeholder', '')
+      $('.header').css('border-radius', '40px 0 0 40px')
+    },
+    blurInput: function () {
+      $('.header').css('border-radius', '0')
+      $('#input').attr('placeholder', '在此输入你像搜索的内容')
     }
   }
 }
@@ -75,11 +79,27 @@ export default {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 10%;
 }
-#input {
+.input-div{
   display: flex;
+  align-items: center;
   width: 60%;
+  height: 100%;
+}
+.input {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  outline:none;
+  border: 1px solid;
+  border-radius: 40px;
+  padding-left:10px;
+  font-size: 1rem;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  transition: all 0.3s;
+}
+.input:focus{
+  height: 100%;
 }
 .headerImg{
   display: flex;

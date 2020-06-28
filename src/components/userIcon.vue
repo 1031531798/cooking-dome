@@ -6,13 +6,15 @@
           <use xlink:href="#icon-aixin" />
         </svg>
       </Tooltip>
+      <span>我的最爱</span>
     </div>
     <div class="dynamic userGroup">
       <Tooltip content="动态" :delay='1000'>
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-dongtai1" />
+          <use xlink:href="#icon-tubiaozhizuomoban-" />
         </svg>
       </Tooltip>
+      <span>动态</span>
     </div>
     <div class="message userGroup">
       <Badge :count="messageNumber">
@@ -22,23 +24,13 @@
          </svg>
         </Tooltip>
       </Badge>
+      <span>通知</span>
     </div>
     <div class="userImger userGroup">
-      <Dropdown trigger="click">
-        <div class="userName">
+      <div class="userManage">
           <img :src="userImgerSrc" />
-          <a href="javascript:void(0)" class="flexRow">
-            {{userName}}
-            <span class="icon iconfont icon-icon-test25"></span>
-          </a>
-        </div>
-        <Dropdown-menu slot="list">
-          <Dropdown-item>个人空间</Dropdown-item>
-          <Dropdown-item>我的关注</Dropdown-item>
-          <Dropdown-item>我的菜谱</Dropdown-item>
-          <Dropdown-item>联系我们</Dropdown-item>
-        </Dropdown-menu>
-      </Dropdown>
+      </div>
+      <div class="borderImg"></div>
     </div>
   </div>
 </template>
@@ -50,7 +42,6 @@ export default {
     return {
       model1: '',
       userImgerSrc: '../../static/cat3.jpg',
-      userName: 'linzijian',
       messageNumber: 1
     }
   }
@@ -64,28 +55,31 @@ export default {
   flex-direction: row;
   align-items: center;
   font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
-  border: 1px solid #8ed6b2;
-  border-radius: 10px;
-  background: #8ed6b2;
   margin: 3px;
+  z-index: 100;
 }
 #userIcon img {
   width: 3rem;
   height: 3rem;
 }
 .userGroup {
-  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
   cursor: pointer;
   transition: all 0.5s;
+  white-space:nowrap;
 }
 svg {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 }
-.userGroup svg:hover {
+.userGroup:hover svg{
   transform: scale(1.1);
 }
-.userGroup span:hover {
+.userGroup:hover span{
   transform: scale(1.1);
 }
 .userImger {
@@ -98,10 +92,10 @@ svg {
 .userImger img {
   width: 100%;
   height: 100%;
-  border: 1px solid white;
+  border: 1px solid #8ed6b2;
   border-radius: 50%;
 }
-.userName {
+.userManage {
   display: flex;
   flex-direction: row;
   align-items: center;
